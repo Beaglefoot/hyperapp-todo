@@ -1,9 +1,10 @@
 import { h, app } from 'hyperapp';
-// import logger from '@hyperapp/logger';
 
 import view from 'src/view';
 import initialState from 'src/initialState';
 import actions from 'src/actions';
+
+import 'src/styles/global.scss';
 
 const syncWithLocalStorage = view => (state, actions) => {
   localStorage.setItem('hyperappTodoList', JSON.stringify(state));

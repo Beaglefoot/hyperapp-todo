@@ -1,5 +1,7 @@
 import { h } from 'hyperapp';
 
+import { todoItem, todoText, edit, todoEdit } from './TodoText.scss';
+
 const TodoText = ({
   done,
   value,
@@ -9,10 +11,10 @@ const TodoText = ({
   changeValue,
   index
 }) => (
-  <div class="todo-item">
+  <div class={todoItem}>
     {isEditing ? (
       <input
-        class="todo-edit"
+        class={todoEdit}
         value={value}
         onchange={e => changeValue({ value: e.target.value, index })}
         onkeydown={e => {
@@ -24,17 +26,14 @@ const TodoText = ({
       />
     ) : (
       <div
-        class="todo-text"
-        onclick={() => {
-          console.log('toggleDone');
-          toggleDone(index);
-        }}
+        class={todoText}
+        onclick={() => toggleDone(index)}
         style={done ? { textDecoration: 'line-through' } : {}}
       >
         {value}
       </div>
     )}
-    <div class="edit" onclick={() => toggleEditing(index)}>
+    <div class={edit} onclick={() => toggleEditing(index)}>
       &#9998;
     </div>
   </div>

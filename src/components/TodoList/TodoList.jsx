@@ -1,7 +1,19 @@
 import { h } from 'hyperapp';
+import classNames from 'classnames';
 
 import TodoText from 'src/components/TodoText/TodoText';
 import getFilteredList from 'src/helpers/getFilteredList';
+
+import {
+  todoList,
+  todoItem,
+  cross,
+  afterRow,
+  filter as filterClass,
+  addItem,
+  noPadding,
+  cleanUp
+} from './TodoList.scss';
 
 const TodoList = ({ state: { list, filter }, actions }) => {
   const filteredList = getFilteredList(filter, list);
@@ -15,16 +27,16 @@ const TodoList = ({ state: { list, filter }, actions }) => {
   };
 
   return (
-    <div class="todo-list">
+    <div class={todoList}>
       <input
-        id="add-item"
+        class={addItem}
         type="text"
         onkeypress={e => handleChange(e)}
         placeholder="Add an item"
       />
       <ul>
         {filteredList.map((item, index) => (
-          <li key={item.id} class="todo-item">
+          <li key={item.id} class={todoItem}>
             <TodoText
               {...item}
               toggleDone={actions.toggleDone}
@@ -32,20 +44,23 @@ const TodoList = ({ state: { list, filter }, actions }) => {
               changeValue={actions.changeValue}
               index={index}
             />
-            <div class="cross" onclick={() => actions.removeItem(index)}>
+            <div class={cross} onclick={() => actions.removeItem(index)}>
               &#10006;
             </div>
           </li>
         ))}
       </ul>
 
-      <div class="after-row">
+      <div class={afterRow}>
         <div>Total: {filteredList.length}</div>
-        <div class="clean-up fa fa-trash-o" onclick={actions.removeFinished} />
+        <div
+          class={classNames(cleanUp, 'fa', 'fa-trash-o')}
+          onclick={actions.removeFinished}
+        />
       </div>
 
       <ul
-        class="filter"
+        class={classNames(filterClass, noPadding)}
         onclick={e => actions.changeFilter(e.target.textContent.toLowerCase())}
       >
         {['All', 'Unfinished', 'Finished'].map((value, index) => (
