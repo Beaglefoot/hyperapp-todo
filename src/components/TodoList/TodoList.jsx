@@ -27,16 +27,16 @@ const TodoList = ({ state: { list, filter }, actions }) => {
   };
 
   return (
-    <div class={todoList}>
+    <div className={todoList}>
       <input
-        class={addItem}
+        className={addItem}
         type="text"
-        onkeypress={e => handleChange(e)}
+        onKeyPress={e => handleChange(e)}
         placeholder="Add an item"
       />
-      <ul>
+      <ul className={noPadding}>
         {filteredList.map((item, index) => (
-          <li key={item.id} class={todoItem}>
+          <li key={item.id} className={todoItem}>
             <TodoText
               {...item}
               toggleDone={actions.toggleDone}
@@ -44,24 +44,24 @@ const TodoList = ({ state: { list, filter }, actions }) => {
               changeValue={actions.changeValue}
               index={index}
             />
-            <div class={cross} onclick={() => actions.removeItem(index)}>
+            <div className={cross} onClick={() => actions.removeItem(index)}>
               &#10006;
             </div>
           </li>
         ))}
       </ul>
 
-      <div class={afterRow}>
+      <div className={afterRow}>
         <div>Total: {filteredList.length}</div>
         <div
-          class={classNames(cleanUp, 'fa', 'fa-trash-o')}
-          onclick={actions.removeFinished}
+          className={classNames(cleanUp, 'fa', 'fa-trash-o')}
+          onClick={actions.removeFinished}
         />
       </div>
 
       <ul
-        class={classNames(filterClass, noPadding)}
-        onclick={e => actions.changeFilter(e.target.textContent.toLowerCase())}
+        className={classNames(filterClass, noPadding)}
+        onClick={e => actions.changeFilter(e.target.textContent.toLowerCase())}
       >
         {['All', 'Unfinished', 'Finished'].map((value, index) => (
           <li
