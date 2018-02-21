@@ -66,6 +66,7 @@
   },
   "dependencies": {
     "@hyperapp/logger": "^0.4.1",
+    "classlist.js": "^1.1.20150312",
     "cuid": "^2.1.0",
     "hyperapp": "^1.1.2"
   }

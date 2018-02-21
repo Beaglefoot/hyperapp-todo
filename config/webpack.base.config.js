@@ -14,7 +14,12 @@ const cssLoaderOptions = {
 };
 
 const baseConfig = {
-  entry: ['babel-polyfill', path.resolve(projectRootDir, 'src/index.js')],
+  entry: [
+    'babel-polyfill',
+    'classlist.js',
+    './debug/index.js',
+    path.resolve(projectRootDir, 'src/index.js')
+  ],
 
   output: {
     path: path.resolve(projectRootDir, 'dist'),
