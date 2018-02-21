@@ -1,5 +1,5 @@
 import { h } from 'hyperapp';
-import classNames from 'classnames';
+import classs from 'classnames';
 
 import TodoText from 'src/components/TodoText/TodoText';
 import getFilteredList from 'src/helpers/getFilteredList';
@@ -27,16 +27,16 @@ const TodoList = ({ state: { list, filter }, actions }) => {
   };
 
   return (
-    <div className={todoList}>
+    <div class={todoList}>
       <input
-        className={addItem}
+        class={addItem}
         type="text"
-        onKeyPress={e => handleChange(e)}
+        onkeypress={e => handleChange(e)}
         placeholder="Add an item"
       />
-      <ul className={noPadding}>
+      <ul class={noPadding}>
         {filteredList.map((item, index) => (
-          <li key={item.id} className={todoItem}>
+          <li key={item.id} class={todoItem}>
             <TodoText
               {...item}
               toggleDone={actions.toggleDone}
@@ -44,24 +44,24 @@ const TodoList = ({ state: { list, filter }, actions }) => {
               changeValue={actions.changeValue}
               index={index}
             />
-            <div className={cross} onClick={() => actions.removeItem(index)}>
+            <div class={cross} onclick={() => actions.removeItem(index)}>
               &#10006;
             </div>
           </li>
         ))}
       </ul>
 
-      <div className={afterRow}>
+      <div class={afterRow}>
         <div>Total: {filteredList.length}</div>
         <div
-          className={classNames(cleanUp, 'fa', 'fa-trash-o')}
-          onClick={actions.removeFinished}
+          class={classs(cleanUp, 'fa', 'fa-trash-o')}
+          onclick={actions.removeFinished}
         />
       </div>
 
       <ul
-        className={classNames(filterClass, noPadding)}
-        onClick={e => actions.changeFilter(e.target.textContent.toLowerCase())}
+        class={classs(filterClass, noPadding)}
+        onclick={e => actions.changeFilter(e.target.textContent.toLowerCase())}
       >
         {['All', 'Unfinished', 'Finished'].map((value, index) => (
           <li
