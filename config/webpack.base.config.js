@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const es3ifyPlugin = require('es3ify-webpack-plugin');
 
 const projectRootDir = path.resolve(__dirname, '..');
 
@@ -13,7 +14,7 @@ const cssLoaderOptions = {
 };
 
 const baseConfig = {
-  entry: [path.resolve(projectRootDir, 'src/index.js')],
+  entry: ['babel-polyfill', path.resolve(projectRootDir, 'src/index.js')],
 
   output: {
     path: path.resolve(projectRootDir, 'dist'),
@@ -80,9 +81,10 @@ const baseConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(projectRootDir, 'src/index.html'),
-      filename: path.resolve(projectRootDir, 'index.html')
+      filename: 'index.html'
     }),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new es3ifyPlugin()
   ]
 };
 

@@ -14,7 +14,7 @@ const {
 const prodConfig = merge.smart(baseConfig, {
   output: {
     path: path.resolve(__dirname, '..', 'dist'),
-    publicPath: 'dist/'
+    publicPath: './'
   },
 
   module: {
