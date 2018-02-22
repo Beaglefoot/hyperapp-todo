@@ -4,6 +4,8 @@ import view from 'src/view';
 import initialState from 'src/initialState';
 import actions from 'src/actions';
 
+import Footer from 'src/components/Footer/Footer';
+
 import 'src/styles/global.scss';
 
 const syncWithLocalStorage = view => (state, actions) => {
@@ -19,3 +21,5 @@ app(
   syncWithLocalStorage(view),
   document.getElementById('app')
 );
+
+new Footer().appendToDocument();
