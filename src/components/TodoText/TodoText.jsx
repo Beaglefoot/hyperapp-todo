@@ -2,15 +2,10 @@ import { h } from 'hyperapp';
 
 import { todoItem, todoText, edit, todoEdit } from './TodoText.scss';
 
-const TodoText = ({
-  done,
-  value,
-  isEditing,
-  toggleDone,
-  toggleEditing,
-  changeValue,
-  index
-}) => (
+const TodoText = ({ done, value, isEditing, index }) => (
+  _,
+  { toggleDone, toggleEditing, changeValue }
+) => (
   <div class={todoItem}>
     {isEditing ? (
       <input
