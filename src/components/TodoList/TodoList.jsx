@@ -15,7 +15,7 @@ import {
   cleanUp
 } from './TodoList.scss';
 
-const TodoList = ({ state: { list, filter }, actions }) => {
+const TodoList = () => ({ list, filter }, actions) => {
   const filteredList = getFilteredList(filter, list);
   const handleChange = e => {
     // on Enter press
@@ -37,13 +37,7 @@ const TodoList = ({ state: { list, filter }, actions }) => {
       <ul class={noPadding}>
         {filteredList.map((item, index) => (
           <li key={item.id} class={todoItem}>
-            <TodoText
-              {...item}
-              toggleDone={actions.toggleDone}
-              toggleEditing={actions.toggleEditing}
-              changeValue={actions.changeValue}
-              index={index}
-            />
+            <TodoText {...item} index={index} />
             <div class={cross} onclick={() => actions.removeItem(index)}>
               &#10006;
             </div>

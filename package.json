@@ -9,21 +9,17 @@
     "build": "webpack-cli --config ./config/webpack.prod.config.js",
     "start": "webpack-dev-server --config ./config/webpack.dev.config.js",
     "analyze": "webpack-cli --config ./config/webpack.analyze.config.js",
-    "fix:assets": "prettier --ignore-path .gitignore --write \"**/*.{json,md,scss}\"",
+    "fix:assets":
+      "prettier --ignore-path .gitignore --write \"**/*.{json,md,scss}\"",
     "fix:code": "yarn lint:code -- --fix",
     "fix": "yarn fix:code && yarn fix:assets",
-    "lint:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
+    "lint:code":
+      "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
     "lint": "yarn lint:code"
   },
   "lint-staged": {
-    "*.{json,scss,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{js,jsx}": [
-      "eslint --fix --ignore-path .prettierignore",
-      "git add"
-    ]
+    "*.{json,scss,md}": ["prettier --write", "git add"],
+    "*.{js,jsx}": ["eslint --fix --ignore-path .prettierignore", "git add"]
   },
   "author": "Beaglefoot",
   "license": "ISC",
