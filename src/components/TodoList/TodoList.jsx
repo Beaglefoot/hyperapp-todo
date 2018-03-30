@@ -1,5 +1,5 @@
 import { h } from 'hyperapp';
-import classs from 'classnames';
+import classNames from 'classnames';
 
 import TodoText from 'src/components/TodoText/TodoText';
 import getFilteredList from 'src/helpers/getFilteredList';
@@ -48,13 +48,13 @@ const TodoList = () => ({ list, filter }, actions) => {
       <div class={afterRow}>
         <div>Total: {filteredList.length}</div>
         <div
-          class={classs(cleanUp, 'fa', 'fa-trash-o')}
+          class={classNames(cleanUp, 'fa', 'fa-trash-o')}
           onclick={actions.removeFinished}
         />
       </div>
 
       <ul
-        class={classs(filterClass, noPadding)}
+        class={classNames(filterClass, noPadding)}
         onclick={e => actions.changeFilter(e.target.textContent.toLowerCase())}
       >
         {['All', 'Unfinished', 'Finished'].map((value, index) => (
