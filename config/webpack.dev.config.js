@@ -8,6 +8,8 @@ const defaultPort = 8080;
 const port = process.env.PORT || defaultPort;
 
 const devConfig = merge.smart(baseConfig, {
+  mode: 'development',
+
   output: {
     path: projectRootDir
   },

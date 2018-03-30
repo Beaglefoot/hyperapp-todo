@@ -4,3 +4,4 @@ dist
 *.swp
 stats.json
 .vscode
+*.log
