@@ -9,17 +9,21 @@
     "build": "webpack-cli --config ./config/webpack.prod.config.js",
     "start": "webpack-dev-server --config ./config/webpack.dev.config.js",
     "analyze": "webpack-cli --config ./config/webpack.analyze.config.js",
-    "fix:assets":
-      "prettier --ignore-path .gitignore --write \"**/*.{json,md,scss}\"",
+    "fix:assets": "prettier --ignore-path .gitignore --write \"**/*.{json,md,scss}\"",
     "fix:code": "yarn lint:code -- --fix",
     "fix": "yarn fix:code && yarn fix:assets",
-    "lint:code":
-      "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
+    "lint:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
     "lint": "yarn lint:code"
   },
   "lint-staged": {
-    "*.{json,scss,md}": ["prettier --write", "git add"],
-    "*.{js,jsx}": ["eslint --fix --ignore-path .prettierignore", "git add"]
+    "*.{json,scss,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix --ignore-path .prettierignore",
+      "git add"
+    ]
   },
   "author": "Beaglefoot",
   "license": "ISC",
@@ -41,7 +45,7 @@
     "eslint-plugin-import": "2.10.0",
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-react": "7.7.0",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "1.1.11",
     "html-webpack-plugin": "3.1.0",
     "husky": "0.14.3",
