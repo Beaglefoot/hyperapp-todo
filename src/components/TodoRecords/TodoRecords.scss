@@ -1,0 +1,16 @@
+@import 'src/styles/variables.scss';
+@import 'src/styles/mixins.scss';
+@import 'src/styles/templates.scss';
+
+.cross {
+  display: inline-block;
+  margin: 0 0.2em;
+  cursor: pointer;
+  color: lighten($clr_main, 20%);
+  @include emphasize-on-hover();
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,19 +1,11 @@
 import { h } from 'hyperapp';
 import classNames from 'classnames';
 
-import TodoText from 'src/components/TodoText/TodoText';
+import TodoRecords from 'src/components/TodoRecords/TodoRecords';
+import TodoFilter from 'src/components/TodoFilter/TodoFilter';
 import getFilteredList from 'src/helpers/getFilteredList';
 
-import {
-  todoList,
-  todoItem,
-  cross,
-  afterRow,
-  filter as filterClass,
-  addItem,
-  noPadding,
-  cleanUp
-} from './TodoList.scss';
+import { todoList, afterRow, addItem, cleanUp } from './TodoList.scss';
 
 const TodoList = () => ({ list, filter }, actions) => {
   const filteredList = getFilteredList(filter, list);
@@ -34,16 +26,8 @@ const TodoList = () => ({ list, filter }, actions) => {
         onkeypress={e => handleChange(e)}
         placeholder="Add an item"
       />
-      <ul class={noPadding}>
-        {filteredList.map((item, index) => (
-          <li key={item.id} class={todoItem}>
-            <TodoText {...item} index={index} />
-            <div class={cross} onclick={() => actions.removeItem(index)}>
-              &#10006;
-            </div>
-          </li>
-        ))}
-      </ul>
+
+      <TodoRecords filteredList={filteredList} />
 
       <div class={afterRow}>
         <div>Total: {filteredList.length}</div>
@@ -53,19 +37,7 @@ const TodoList = () => ({ list, filter }, actions) => {
         />
       </div>
 
-      <ul
-        class={classNames(filterClass, noPadding)}
-        onclick={e => actions.changeFilter(e.target.textContent.toLowerCase())}
-      >
-        {['All', 'Unfinished', 'Finished'].map((value, index) => (
-          <li
-            key={index}
-            style={value.toLowerCase() === filter ? { color: 'inherit' } : {}}
-          >
-            {value}
-          </li>
-        ))}
-      </ul>
+      <TodoFilter />
     </div>
   );
 };
