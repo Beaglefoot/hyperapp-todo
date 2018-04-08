@@ -12,7 +12,7 @@
 }
 
 .edit {
-  composes: cross from 'src/components/TodoList/TodoList.scss';
+  composes: cross from 'src/components/TodoRecords/TodoRecords.scss';
   text-align: right;
 }
 
