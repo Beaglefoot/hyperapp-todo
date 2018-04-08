@@ -102,6 +102,21 @@ body {
   .Footer__link--wimfP:hover {
     color: #fff;
     text-shadow: 0 0 2px #919191; }
+.TodoRecords__no-padding--1sfwI {
+  padding: 0; }
+
+.TodoRecords__cross--cYqLo {
+  display: inline-block;
+  margin: 0 0.2em;
+  cursor: pointer;
+  color: #777777; }
+  .TodoRecords__cross--cYqLo:hover {
+    text-decoration: underline;
+    text-decoration-color: #6a6a6a; }
+
+.TodoRecords__todo-item--2oLli {
+  display: flex;
+  justify-content: space-between; }
 .TodoList__todo-list--2CU9y {
   max-width: 20em;
   margin: 0 auto;
